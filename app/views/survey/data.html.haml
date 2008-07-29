@@ -10,7 +10,7 @@
     %h3= question.content
     - total_votes = question.votes.count.to_f
     %ul
-      - question.answers.reverse.each do |answer|
+      - question.answers.each do |answer|
         %li
           = answer.content
           \----
