@@ -3,3 +3,13 @@
     %tr
       %td= person.email_address
       %td= person.ip_address
+      
+
+.questions
+  - Question.find(:all).each do |question|
+    %h3= question.content
+    - total_votes = question.votes.count.to_f
+    %ul
+      - question.answers.reverse.each do |answer|
+        = answer.content
+        = total_votes / answer.votes.count
