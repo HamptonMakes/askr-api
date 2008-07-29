@@ -1,2 +1,23 @@
-- Person.find(:all).each do |person|
-  = person.inspect
+%table
+  - Person.find(:all).each do |person|
+    %tr
+      %td= person.email_address
+      %td= person.ip_address
+      
+
+.questions
+  - Question.find(:all).each do |question|
+    %h3= question.content
+    - total_votes = question.votes.count.to_f
+    %ul
+      - question.answers.reverse.each do |answer|
+        %li
+          = answer.content
+          \----
+          = answer.votes.count
+          - if answer.votes.count > 0
+            \----
+            = ((answer.votes.count / total_votes) * 100).to_i
+            \%
+          - else
+            0%
