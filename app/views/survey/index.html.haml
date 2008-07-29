@@ -7,8 +7,9 @@
       help answer that question. Please send this survey around.
     %p
       This survey has been taken by
-      = Person.count
-      people.
+      %strong
+        = Person.count
+        people.
     %p
       Give us your email address if you want to get an email when the survey's results are compiled.
     %label Email
@@ -16,7 +17,7 @@
 
   - @questions.each do |question|
     .question
-      %h3= question.content
+      %h2= question.content
       %ul
         - question.answers.reverse.each do |answer|
           %li
