@@ -10,7 +10,7 @@ body {
   line-height: 1;
   font-size: 1.3em;
   color: #1e434f;
-  margin: 30px;
+  margin: 30px 30px 0;
   background: #d3e6eb url('/images/bg.png') left top repeat; }
 
 body, input, textarea {
@@ -124,3 +124,6 @@ p {
 
 input[type="radio"] {
   border: 0; }
+
+#heroku_toolbar {
+  display: none !important; }
