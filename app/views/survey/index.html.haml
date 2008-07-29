@@ -1,0 +1,27 @@
+
+- form_tag do
+
+  %fieldset
+    %p
+      I have heard a lot of people wondering what other members of the Ruby community are working with/on, etc. So, I put together this little survey to 
+      help answer that question. Please send this survey around.
+    %p
+      This survey has been taken by
+      = Person.count
+      people.
+    %p
+      Give us your email address if you want to get an email when the survey's results are compiled.
+    %label Email
+    = text_field :person, :email_address
+
+  - @questions.each do |question|
+    .question
+      %h3= question.content
+      %ul
+        - question.answers.each do |answer|
+          %li
+            = radio_button_tag "question[#{question.id}]", answer.id
+            = answer.content
+  
+  
+  %button{:type => "submit"} Finish Survey

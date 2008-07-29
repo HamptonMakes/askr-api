@@ -1,0 +1,77 @@
+
+
+Have you read the "pickaxe" book?
+  Yes
+  No
+
+Have you read the "agile" rails book?
+  Yes
+  No
+
+How long have you been programming ruby?
+  Less than a year
+  1-2 years
+  2-3 years
+  3+ years
+
+What is your web framework of preference?
+  Rails
+  Merb
+  Sinatra
+  Other
+  No web work
+
+What is your indentation preference?
+  Two Spaces
+  Hard Tab
+  Don't Care
+
+Text editor of preference?
+  VIM
+  Emacs
+  Textmate
+  Eclipse Based
+  Other
+
+Is Ruby your primary language?
+  Yes
+  No
+
+How would you rate your Ruby expertise?
+  Expert
+  Advanced
+  Average
+  Beginner
+  Barely Any
+
+What are your thoughts on Haml?
+  I demand it
+  I prefer it
+  I don't use it
+  Hate it
+  What is it?
+
+What Javascript framework do you prefer?
+  Prototype
+  JQuery
+  Moo
+  Other
+  None
+  Don't do JS
+
+What are your thoughts on automated testing (Unit testing, etc)?
+  Required
+  Do it often
+  Don't do it
+
+What are your thoughts on human testing?
+  Required
+  Do it often
+  Don't do it
+
+What is your preferred Ruby interpreter?
+  MRI (standard)
+  JRuby
+  Rubinius
+  IronRuby
+  Other
