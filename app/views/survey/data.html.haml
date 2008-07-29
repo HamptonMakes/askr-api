@@ -11,12 +11,13 @@
     - total_votes = question.votes.count.to_f
     %ul
       - question.answers.reverse.each do |answer|
-        = answer.content
-        \----
-        = answer.votes.count
-        - if answer.votes.count > 0
+        %li
+          = answer.content
           \----
-          = ((total_votes / answer.votes.count) * 100).to_i
-          \%
-        - else
-          0%
+          = answer.votes.count
+          - if answer.votes.count > 0
+            \----
+            = ((total_votes / answer.votes.count) * 100).to_i
+            \%
+          - else
+            0%
