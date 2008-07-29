@@ -21,8 +21,9 @@
       %ul
         - question.answers.reverse.each do |answer|
           %li
-            = radio_button_tag "question[#{question.id}]", answer.id
-            = answer.content
+            %label{:for => "question_#{question.id}_#{answer.id}"}
+              = radio_button_tag "question[#{question.id}]", answer.id
+              = answer.content
   
   
   %button{:type => "submit"} Finish Survey

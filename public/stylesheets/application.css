@@ -59,9 +59,8 @@ fieldset {
   background: #d3e6eb;
   margin-bottom: 30px;
   font-size: 1.1em; }
-
-label {
-  font-weight: bold; }
+  fieldset label {
+    font-weight: bold; }
 
 input {
   border: 1px solid #a3c5cf;
