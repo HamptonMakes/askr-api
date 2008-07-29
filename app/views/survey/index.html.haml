@@ -18,7 +18,7 @@
     .question
       %h3= question.content
       %ul
-        - question.answers.each do |answer|
+        - question.answers.reverse.each do |answer|
           %li
             = radio_button_tag "question[#{question.id}]", answer.id
             = answer.content
