@@ -1,9 +1,11 @@
-%table
-  - Person.find(:all).each do |person|
-    %tr
-      %td= person.email_address
-      %td= person.ip_address
-      
+- if false
+  %table
+    - Person.find(:all).each do |person|
+      %tr
+        %td= person.email_address
+        %td= person.ip_address
+
+%h2== Data from #{Person.count} people
 
 .questions
   - Question.find(:all).each do |question|
