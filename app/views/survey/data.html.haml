@@ -18,7 +18,7 @@
     = distance_of_time_in_words_to_now(started_at)
   %li== Data from #{Person.count} people
   %li
-    = ((started_at - Time.now) / 60 / 60) / Person.count
+    = Person.count / ((started_at - Time.now) / 60 / 60)
     people an hour
 
 %br/
