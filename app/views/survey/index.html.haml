@@ -19,7 +19,7 @@
     .question
       %h2= question.content
       %ul
-        - question.answers.each do |answer|
+        - question.answers.find(:all, :order => "id ASC").each do |answer|
           %li
             %label{:for => "question_#{question.id}_#{answer.id}"}
               = radio_button_tag "question[#{question.id}]", answer.id
