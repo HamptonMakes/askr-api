@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0; }
+
+html {
+  font-size: 67.5%; }
+
+body {
+  line-height: 1;
+  font-size: 1.3em;
+  color: #1e434f;
+  margin: 30px;
+  background: #d3e6eb url('/images/bg.png') left top repeat; }
+
+body, input, textarea {
+  font-family: Arial, sans-serif; }
+
+input, textarea {
+  font-size: 1.1em; }
+
+input.submit, button {
+  cursor: pointer; }
+
+ol, ul, li {
+  list-style-type: none;
+  vertical-align: top; }
+
+table, tr, th, td, caption {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle; }
+
+p, li {
+  line-height: 1.4; }
+
+p {
+  margin-bottom: 10px;
+  font-size: 1.1em; }
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  background: url('/images/gem.png') left top no-repeat;
+  padding-left: 85px;
+  height: 48px;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+  padding-top: 10px; }
+  h1 a {
+    color: #9e0e18;
+    text-decoration: none; }
+
+fieldset {
+  padding: 15px;
+  border: 1px dashed #a3c5cf;
+  background: #d3e6eb;
+  margin-bottom: 30px;
+  font-size: 1.1em; }
+
+label {
+  font-weight: bold; }
+
+input {
+  border: 1px solid #a3c5cf;
+  padding: 5px; }
+
+.question {
+  margin-bottom: 15px; }
+  .question h2 {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    letter-spacing: 0.08em;
+    padding: 5px;
+    color: #9e0e18;
+    background: #d3e6eb;
+    border-bottom: 1px solid #a3c5cf; }
+  .question ul {
+    margin-left: 10px;
+    font-size: 1.2em;
+    margin-bottom: 30px; }
+    .question ul li {
+      margin-bottom: 10px; }
+      .question ul li input {
+        margin-right: 10px; }
+
+a.unspace, a.heroku {
+  display: block;
+  text-indent: -999em;
+  background-position: left top;
+  background-repeat: no-repeat;
+  margin-left: 8px;
+  margin-top: -5px; }
+a.unspace {
+  background-image: url('/images/unspace.png');
+  width: 84px;
+  height: 15px;
+  margin-top: 3px; }
+a.heroku {
+  background-image: url('/images/heroku.png');
+  height: 30px;
+  width: 96px; }
+
+ul#footer {
+  float: right;
+  margin: 20px 0; }
+  ul#footer li {
+    float: left;
+    margin-left: 25px; }
+    ul#footer li a, ul#footer li span {
+      float: left; }
+
+button {
+  font-size: 1.3em;
+  padding: 3px; }
+
+img {
+  border: 1px solid #a3c5cf;
+  padding: 5px; }
+
+p {
+  margin-top: 10px; }
+
+input[type="radio"] {
+  border: 0; }
