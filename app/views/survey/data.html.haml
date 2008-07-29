@@ -17,7 +17,7 @@
           = answer.votes.count
           - if answer.votes.count > 0
             \----
-            = ((total_votes / answer.votes.count) * 100).to_i
+            = ((answer.votes.count / total_votes) * 100).to_i
             \%
           - else
             0%
