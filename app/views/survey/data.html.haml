@@ -14,4 +14,6 @@
         = answer.content
         \----
         = answer.votes.count
+        \----
         = ((total_votes / answer.votes.count) * 100).to_i
+        %
