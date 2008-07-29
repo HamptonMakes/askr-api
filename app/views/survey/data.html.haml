@@ -1,2 +1,5 @@
-- Person.find(:all).each do |person|
-  = person.inspect
+%table
+  - Person.find(:all).each do |person|
+    %tr
+      %td= person.email
+      %td= person.ip_address
