@@ -12,4 +12,6 @@
     %ul
       - question.answers.reverse.each do |answer|
         = answer.content
-        = total_votes / answer.votes.count
+        \----
+        = answer.votes.count
+        = ((total_votes / answer.votes.count) * 100).to_i
