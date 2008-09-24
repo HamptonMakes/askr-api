@@ -10,7 +10,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20080729191848) do
-
   create_table "answers", :force => true do |t|
     t.string   "content"
     t.integer  "question_id"
