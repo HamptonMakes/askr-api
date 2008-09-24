@@ -15,4 +15,9 @@ class SurveyController < ApplicationController
       redirect_to :action => "finished"
     end
   end
+  
+  def stats
+    @people = Person.find(:all, :include => {:answers => :question})
+    render :layout => false
+  end
 end

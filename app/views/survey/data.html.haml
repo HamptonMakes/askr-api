@@ -1,41 +1,23 @@
-- if false
-  %table
-    - Person.find(:all).each do |person|
-      %tr
-        %td= person.email_address
-        %td= person.ip_address
-        
-%h2 Data
+%h2 Results!
 
-%br/
+%p
+  The results are in! Here you can view the organized data of Hampton's Ruby Survey 2008!
 
-%h3 Stats
-
-%ul
-  %li
-    The survey has been up for
-    - started_at = Person.find(:first).created_at
-    = distance_of_time_in_words_to_now(started_at)
-  %li== Data from #{Person.count} people
-  %li
-    = (Person.count / ((Time.now - started_at) / 60 / 60)).to_i
-    people an hour
-
-%br/
 
 .questions
   - Question.find(:all).each do |question|
-    %h3= question.content
-    - total_votes = question.votes.count.to_f
-    %ul
-      - question.answers.each do |answer|
-        %li
-          = answer.content
-          \----
-          = answer.votes.count
-          - if answer.votes.count > 0
+    %div[question]
+      %h3= question.content
+      - total_votes = question.votes.count.to_f
+      %ol
+        - question.answers.each do |answer|
+          %li
+            = answer.content
             \----
-            = ((answer.votes.count / total_votes) * 100).to_i
-            \%
-          - else
-            0%
+            = answer.votes.count
+            - if answer.votes.count > 0
+              \----
+              = ((answer.votes.count / total_votes) * 100).to_i
+              \%
+            - else
+              0%
