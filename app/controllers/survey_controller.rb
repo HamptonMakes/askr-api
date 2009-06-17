@@ -9,7 +9,7 @@ class SurveyController < ApplicationController
       @person.save
       
       params[:question].each do |key, value|
-        Vote.create(:question_id => key, :answer_id => value)
+        Vote.create(:question_id => key, :answer_id => value, :year => 2009, :person => @person)
       end
       
       redirect_to :action => "finished"
