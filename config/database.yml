@@ -1,7 +1,8 @@
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: mysql
+  database: survey
   encoding: utf8
+  user: root
 
 production:
   adapter: sqlite3
