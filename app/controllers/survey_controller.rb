@@ -21,6 +21,6 @@ class SurveyController < ApplicationController
   end
   
   def emails
-    @people = Person.find(:all)
+    #@people = Person.find(:all)
   end
 end
