@@ -3,13 +3,14 @@
 
   %fieldset
     %p
-      We're on for year two of Hampton's Ruby Survey! Let's find out what's changed in the ruby community.
+      We're on for year three of Hampton's Ruby Survey! Let's find out what's changed in the ruby community.
       What's gotten hotter, what's lost some steam?
     %p
       This survey has been taken by
       %strong
-        = Person.count - 1228
+        = Person.count
         people.
+    %p= link_to "Click here to see the 2008/2009 Results! (but please come back and take the survey!)", "/survey/stats"
     %p
       Give us your email address if you want to get an email when the survey's results are compiled.
     %label Email

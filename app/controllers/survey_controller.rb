@@ -9,7 +9,7 @@ class SurveyController < ApplicationController
       @person.save
 
       params[:question].each do |key, value|
-        Vote.create(:question_id => key, :answer_id => value, :year => 2009, :person => @person)
+        Vote.create(:question_id => key, :answer_id => value, :year => 2010, :person => @person)
       end
 
       redirect_to :action => "finished"
@@ -17,7 +17,10 @@ class SurveyController < ApplicationController
   end
   
   def stats
-    @people = Person.find(:all, :include => {:answers => :question})
-    render :layout => false
+    @questions = Question.find(:all, :include => :answers)
+  end
+  
+  def emails
+    @people = Person.find(:all)
   end
 end
