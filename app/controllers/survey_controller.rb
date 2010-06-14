@@ -17,7 +17,6 @@ class SurveyController < ApplicationController
   end
   
   def stats
-    @questions = Question.find(:all, :include => :answers)
   end
   
   def emails

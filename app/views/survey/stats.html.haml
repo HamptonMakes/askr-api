@@ -1,38 +1,39 @@
 
 
-%h2 2008-2009 Results
+= cache_helper do
+  %h2 2008-2009 Results
 
-%p 
-  While we are collecting 2010 results, I'm happy to show you the results
-  from the last two years. Each answer has next to it the percent of people
-  who voted for that option in the year that the voted for it.
-%p
-  Next to 2009 though, there is the %-change between the two years. That's
-  the really juicy stuff to me!
-%p
-  Any of them with N/A for 2008 means that it was a question debuted in 2009.
+  %p 
+    While we are collecting 2010 results, I'm happy to show you the results
+    from the last two years. Each answer has next to it the percent of people
+    who voted for that option in the year that the voted for it.
+  %p
+    Next to 2009 though, there is the %-change between the two years. That's
+    the really juicy stuff to me!
+  %p
+    Any of them with N/A for 2008 means that it was a question debuted in 2009.
 
-%h3= link_to "Take the 2010 Survey!", "/"
+  %h3= link_to "Take the 2010 Survey!", "/"
 
-%p Please!
+  %p Please!
 
-- @questions.each do |question|
-  .question
-    %h2= question.content
-    %ul
-      - question.answers.find(:all, :order => "id ASC").each do |answer|
-        %li
-          %label{:for => "question_#{question.id}_#{answer.id}"}
-            = answer.content
-          %ul.votes
-            %li
-              2008 -
-              = number_to_percentage answer.percent_in(2008)
-            %li
-              2009 - 
-              = number_to_percentage answer.percent_in(2009)
-              - @change = answer.change_between(2009, 2008)
-              - if @change > 0
-                %span.positive= number_to_percentage @change
-              - else
-                %span.negative= number_to_percentage @change
+  -  Question.find(:all, :include => :answers).each do |question|
+    .question
+      %h2= question.content
+      %ul
+        - question.answers.find(:all, :order => "id ASC").each do |answer|
+          %li
+            %label{:for => "question_#{question.id}_#{answer.id}"}
+              = answer.content
+            %ul.votes
+              %li
+                2008 -
+                = number_to_percentage answer.percent_in(2008)
+              %li
+                2009 - 
+                = number_to_percentage answer.percent_in(2009)
+                - @change = answer.change_between(2009, 2008)
+                - if @change > 0
+                  %span.positive= number_to_percentage @change
+                - else
+                  %span.negative= number_to_percentage @change
