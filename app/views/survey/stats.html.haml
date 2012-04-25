@@ -36,12 +36,23 @@
                       %span.positive= number_to_percentage @change
                     - else
                       %span.negative= number_to_percentage @change
-              %li
-                2010* - 
-                = number_to_percentage answer.percent_in(2010)
-                - if answer.percent_in(2009) > 0
-                  - @change = answer.change_between(2010, 2009)
-                  - if @change > 0
-                    %span.positive= number_to_percentage @change
-                  - else
-                    %span.negative= number_to_percentage @change
+              - if answer.percent_in(2010) > 0
+                %li
+                  2010 - 
+                  = number_to_percentage answer.percent_in(2010)
+                  - if answer.percent_in(2009) > 0
+                    - @change = answer.change_between(2010, 2009)
+                    - if @change > 0
+                      %span.positive= number_to_percentage @change
+                    - else
+                      %span.negative= number_to_percentage @change
+              - if answer.percent_in(2012) > 0
+                %li
+                  2012 - 
+                  = number_to_percentage answer.percent_in(2012)
+                  - if answer.percent_in(2010) > 0
+                    - @change = answer.change_between(2012, 2010)
+                    - if @change > 0
+                      %span.positive= number_to_percentage @change
+                    - else
+                      %span.negative= number_to_percentage @change
