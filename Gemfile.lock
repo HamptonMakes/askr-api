@@ -1,0 +1,30 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionmailer (2.3.16)
+      actionpack (= 2.3.16)
+    actionpack (2.3.16)
+      activesupport (= 2.3.16)
+      rack (~> 1.1.0)
+    activerecord (2.3.16)
+      activesupport (= 2.3.16)
+    activeresource (2.3.16)
+      activesupport (= 2.3.16)
+    activesupport (2.3.16)
+    pg (0.14.1)
+    rack (1.1.6)
+    rails (2.3.16)
+      actionmailer (= 2.3.16)
+      actionpack (= 2.3.16)
+      activerecord (= 2.3.16)
+      activeresource (= 2.3.16)
+      activesupport (= 2.3.16)
+      rake (>= 0.8.3)
+    rake (10.0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pg
+  rails (~> 2.3)
