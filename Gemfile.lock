@@ -11,6 +11,8 @@ GEM
     activeresource (2.3.16)
       activesupport (= 2.3.16)
     activesupport (2.3.16)
+    daemons (1.1.9)
+    eventmachine (1.0.0)
     pg (0.14.1)
     rack (1.1.6)
     rails (2.3.16)
@@ -21,6 +23,10 @@ GEM
       activesupport (= 2.3.16)
       rake (>= 0.8.3)
     rake (10.0.3)
+    thin (1.5.0)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
 
 PLATFORMS
   ruby
@@ -28,3 +34,4 @@ PLATFORMS
 DEPENDENCIES
   pg
   rails (~> 2.3)
+  thin
