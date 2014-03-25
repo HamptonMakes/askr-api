@@ -5,6 +5,14 @@ RubySurvey::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'survey#index'
 
+  # I know! This isn't how I should do it now!
+  post '/' => 'survey#index'
+
+  get '/finished' => "survey#finished", :as => "finished"
+  get '/stats' => "survey#stats", :as => "stats"
+
+  get '/survey/stats' => redirect('/stats')
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

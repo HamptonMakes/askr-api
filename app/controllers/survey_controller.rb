@@ -1,6 +1,7 @@
 class SurveyController < ApplicationController
   def index
-    @person = Person.new(params[:person])
+
+    @person = Person.new(:email_address => params[:person][:email_address]) if params[:person]
     @questions = Question.find(:all, :include => [:answers])
     
     if request.post? && params[:question]
