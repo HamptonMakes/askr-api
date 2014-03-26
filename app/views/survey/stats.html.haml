@@ -1,68 +1,64 @@
 
 
 - cache do
-  %h2 2008-#{YEAR} Results
+  .about
+    .blurb 
+      This is the results page. Feel free to look through it. Some of the questions are new and only show up in some of the years.
+      Next to the second year though, there is the %-change between the years. That's the really juicy stuff to me.
+      .link= link_to "Take the Survey!", "/"
 
-  %p This is the results page. Feel free to look through it.
-  %p Some of the questions are new and only show up in some of the years.
-  %p
-    Next to the second year though, there is the %-change between the years. That's
-    the really juicy stuff to me!
-
-  %h3= link_to "Take the Survey!", "/"
-
-  %p Please!
-
-  - Question.find(:all, :include => :answers).each do |question|
-    .question[question]
-      %h2= question.content
-      %ul
-        - question.answers.find(:all, :order => "id ASC").each do |answer|
-          %li[answer]
-            %label{:for => "question_#{question.id}_#{answer.id}"}
-              = answer.content
-            %ul.votes
-              - if answer.percent_in(2008) > 0      
-                %li
-                  2008 -
-                  = number_to_percentage answer.percent_in(2008)
-              - if answer.percent_in(2009) > 0
-                %li
-                  2009 - 
-                  = number_to_percentage answer.percent_in(2009)
-                  - if answer.percent_in(2008) > 0
-                    - @change = answer.change_between(2009, 2008)
-                    - if @change > 0
-                      %span.positive= number_to_percentage @change
-                    - else
-                      %span.negative= number_to_percentage @change
-              - if answer.percent_in(2010) > 0
-                %li
-                  2010 - 
-                  = number_to_percentage answer.percent_in(2010)
-                  - if answer.percent_in(2009) > 0
-                    - @change = answer.change_between(2010, 2009)
-                    - if @change > 0
-                      %span.positive= number_to_percentage @change
-                    - else
-                      %span.negative= number_to_percentage @change
-              - if answer.percent_in(2012) > 0
-                %li
-                  2012 - 
-                  = number_to_percentage answer.percent_in(2012)
-                  - if answer.percent_in(2010) > 0
-                    - @change = answer.change_between(2012, 2010)
-                    - if @change > 0
-                      %span.positive= number_to_percentage @change
-                    - else
-                      %span.negative= number_to_percentage @change
-              - if answer.percent_in(2014) > 0
-                %li
-                  2012 - 
-                  = number_to_percentage answer.percent_in(2014)
-                  - if answer.percent_in(2012) > 0
-                    - @change = answer.change_between(2014, 2012)
-                    - if @change > 0
-                      %span.positive= number_to_percentage @change
-                    - else
-                      %span.negative= number_to_percentage @change
+  .results
+    %h2 2008-#{YEAR} Results
+    - Question.find(:all, :include => :answers).each do |question|
+      .question[question]
+        %h2= question.content
+        %ul
+          - question.answers.find(:all, :order => "id ASC").each do |answer|
+            %li[answer]
+              %label{:for => "question_#{question.id}_#{answer.id}"}
+                = answer.content
+              %ul.votes
+                - if answer.percent_in(2008) > 0      
+                  %li
+                    2008 -
+                    = number_to_percentage answer.percent_in(2008)
+                - if answer.percent_in(2009) > 0
+                  %li
+                    2009 - 
+                    = number_to_percentage answer.percent_in(2009)
+                    - if answer.percent_in(2008) > 0
+                      - @change = answer.change_between(2009, 2008)
+                      - if @change > 0
+                        %span.positive= number_to_percentage @change
+                      - else
+                        %span.negative= number_to_percentage @change
+                - if answer.percent_in(2010) > 0
+                  %li
+                    2010 - 
+                    = number_to_percentage answer.percent_in(2010)
+                    - if answer.percent_in(2009) > 0
+                      - @change = answer.change_between(2010, 2009)
+                      - if @change > 0
+                        %span.positive= number_to_percentage @change
+                      - else
+                        %span.negative= number_to_percentage @change
+                - if answer.percent_in(2012) > 0
+                  %li
+                    2012 - 
+                    = number_to_percentage answer.percent_in(2012)
+                    - if answer.percent_in(2010) > 0
+                      - @change = answer.change_between(2012, 2010)
+                      - if @change > 0
+                        %span.positive= number_to_percentage @change
+                      - else
+                        %span.negative= number_to_percentage @change
+                - if answer.percent_in(2014) > 0
+                  %li
+                    2012 - 
+                    = number_to_percentage answer.percent_in(2014)
+                    - if answer.percent_in(2012) > 0
+                      - @change = answer.change_between(2014, 2012)
+                      - if @change > 0
+                        %span.positive= number_to_percentage @change
+                      - else
+                        %span.negative= number_to_percentage @change

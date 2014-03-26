@@ -77,6 +77,17 @@ h1 {
   }
 }
 
+h2 {
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: $grey;
+  @media screen and (max-width: $break) {
+    font-size: 1.1em;
+  }
+}
+
 .about {
   display: inline-block;
   margin-bottom: 20px;
@@ -90,6 +101,10 @@ h1 {
     @media screen and (max-width: $break) {
       width: 100%;
       float: inherit;
+    }
+    .link {
+      display: block;
+      margin-top: 10px;
     }
   }
   .stats {
@@ -114,18 +129,8 @@ h1 {
   }
 }
 
-form {
+form, .results {
   padding: 10px 0px;
-  h2 {
-    margin-bottom: 10px;
-    font-size: 1.3em;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: $grey;
-    @media screen and (max-width: $break) {
-      font-size: 1.1em;
-    }
-  }
   .email {
     margin-bottom: 40px;
   }
@@ -166,6 +171,15 @@ input {
         margin-right: 10px;
       }
     }
+  }
+}
+
+// The stats page needs the lis to be
+// on one line
+
+.results ul {
+  li {
+    display: list-item;
   }
 }
 
