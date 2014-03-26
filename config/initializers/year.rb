@@ -1,0 +1,1 @@
+YEAR = Time.now.year

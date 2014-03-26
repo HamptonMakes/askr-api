@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hampton's Ruby Survey 2014</title>
+  <title>Hampton's Ruby Survey <%= YEAR %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1><%= link_to 'Hampton\'s Fourth Ruby Survey, 2012', '/' %></h1>
+<h1><%= link_to 'Hampton\'s Fifth Ruby Survey, 2014', '/' %></h1>
 <%= yield %>
 
 <script type="text/javascript">
