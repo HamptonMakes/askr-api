@@ -2,12 +2,14 @@
 <html>
 <head>
   <title>Hampton's Ruby Survey <%= YEAR %></title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1><%= link_to 'Hampton\'s Fifth Ruby Survey, 2014', '/' %></h1>
+<h1><%= link_to 'The Fifth Ruby Survey: 2014', '/' %></h1>
 <%= yield %>
 
 <script type="text/javascript">

@@ -1,24 +1,27 @@
 
 .about
-  %p
-    This Ruby Survey was started in 2008 by #{link_to "Hampton Catlin", "http://www.twitter.com/hcatlin"}. It's been held four times: 2008, 2009, 2010, 2012, and 2014. The goal of this survey is to track changing trends, not to get the best data about today. To achieve that, we want to ask the same questions in the same way, every year. Therefore, you might notice some questions sound dated... but that's part of the fun!
-  %p
-    This survey has been taken by
-    %strong
-      = Person.count
-      people ever, and 
-      = Person.where("created_at > ?", Time.new(YEAR)).count
-      people this year.
-  %p= link_to "Click here to see the Stats! (but please come back and take the survey!)", "/stats"
+  .blurb
+    This Ruby Survey was started in 2008 by #{link_to "Hampton Catlin", "http://www.twitter.com/hcatlin"}. It's been held four times since 2008. The goal of this survey is to track changing trends, not to get the best data about today. To achieve that, we want to ask the same questions in the same way, every year. Therefore, you might notice some questions sound dated... but that's part of the fun!
+  .stats
+    .numbers
+      This survey has been taken by:
+      .counts
+        .overall
+          %span= Person.count
+          people overall
+        .year
+          %span= Person.where("created_at > ?", Time.new(YEAR)).count
+          people this year
+    .stats-link= link_to "Click here to see the stats!", "/stats"
 
 = form_tag do
     
   %h2 Take The Survey
-  %p
-    Give us your email address if you want to get an email when the survey's results are compiled.
+  .email
+    %p
+      Enter your email address if you want to stay updated.
 
-  %label Email
-  = text_field :person, :email_address
+    = text_field :person, :email_address, :placeholder => "E-mail"
   - @questions.each do |question|
     .question
       %h2= question.content

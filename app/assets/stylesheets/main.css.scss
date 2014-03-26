@@ -1,0 +1,257 @@
+$light-grey: #EFF1F1;
+$grey: #666;
+$dark-grey: #332E2C;
+$blue: #3D8DAD;
+
+$break: 480px;
+
+@mixin box {
+  border-radius: 2px;
+  background: $light-grey;
+  color: $grey;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  background: white;
+  color: $dark-grey;
+  margin: 30px 80px;
+  font-family: "Open Sans", sans-serif;
+  @media screen and (max-width: $break) {
+    margin: 5px 20px;
+  }
+}
+
+ol, ul, li {
+  list-style-type: none;
+  vertical-align: top;
+}
+
+p, li {
+  line-height: 1.4;
+}
+
+p {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+input, textarea {
+  font-size: 1.1em;
+}
+
+input.submit, button {
+  cursor: pointer;
+}
+
+table, tr, th, td, caption {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+}
+
+
+a, a:visited {
+  color: $blue;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 300;
+  margin-bottom: 20px;
+  height: 48px;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+  padding-top: 10px;
+  @media screen and (max-width: $break) {
+    font-size: 1.4em;
+    overflow: inherit;
+  }
+}
+
+.about {
+  display: inline-block;
+  margin-bottom: 20px;
+  line-height: 1.6em;
+  .blurb {
+    font-size: 1.1em;
+    float: left;
+    width: 70%;
+    padding-right: 25px;
+    margin-bottom: 20px;
+    @media screen and (max-width: $break) {
+      width: 100%;
+      float: inherit;
+    }
+  }
+  .stats {
+    float: right;
+    width: 26%;
+    padding: 5px;
+    @include box;
+    @media screen and (max-width: $break) {
+      float: inherit;
+      margin: auto;
+      width: 85%;
+    }
+    .numbers {
+      margin-bottom: 15px;
+    }
+    .counts {
+      margin-left: 20px;
+      .overall > span, .year > span {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+form {
+  padding: 10px 0px;
+  h2 {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: $grey;
+    @media screen and (max-width: $break) {
+      font-size: 1.1em;
+    }
+  }
+  .email {
+    margin-bottom: 40px;
+  }
+}
+
+input {
+  border: none;
+  padding: 5px;
+  background: $light-grey;
+  color: $dark-grey;
+}
+
+#person_email_address {
+  width: 260px;
+}
+
+.question {
+  margin-top: 15px;
+  h2 {
+    font-weight: 400;
+  }
+  ul {
+    margin-left: 40px;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    @media screen and (max-width: $break) {
+      margin-left: 30px;
+      font-size: 1em;
+    }
+    li {
+      margin-bottom: 10px;
+      margin-right: 45px;
+      display: inline-block;
+      @media screen and (max-width: $break) {
+        display: block;
+      }
+      input {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.votes li {
+  font-size: 15px;
+  font-weight: 700;
+  .positive {
+    color: green;
+  }
+  .negative {
+    color: maroon;
+  }
+}
+
+fieldset {
+  padding: 15px;
+  border: 1px dashed #a3c5cf;
+  background: #d3e6eb;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+  label {
+    font-weight: bold;
+  }
+}
+
+button {
+  font-size: 1.3em;
+  background: $dark-grey;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 10px 60px;
+  &:hover {
+    opacity: 0.6;
+  }
+  @media screen and (max-width: $break) {
+    width: 100%;
+  }
+}
+
+///////////////////////////////////
+
+a {
+  &.unspace, &.heroku {
+    display: block;
+    text-indent: -999em;
+    background-position: left top;
+    background-repeat: no-repeat;
+    margin-left: 8px;
+    margin-top: -5px;
+  }
+  &.unspace {
+    background-image: url("/images/unspace.png");
+    width: 84px;
+    height: 15px;
+    margin-top: 3px;
+  }
+  &.heroku {
+    background-image: url("/images/heroku.png");
+    height: 30px;
+    width: 96px;
+  }
+}
+
+ul#footer {
+  float: right;
+  margin: 20px 0;
+  li {
+    float: left;
+    margin-left: 25px;
+    a, span {
+      float: left;
+    }
+  }
+}
+
+img {
+  border: 1px solid #a3c5cf;
+  padding: 5px;
+}
+
+
+input[type="radio"] {
+  border: 0;
+}
+
+#heroku_toolbar {
+  display: none !important;
+}
