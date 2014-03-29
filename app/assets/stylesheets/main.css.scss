@@ -2,6 +2,8 @@ $light-grey: #EFF1F1;
 $grey: #666;
 $dark-grey: #332E2C;
 $blue: #3D8DAD;
+$green: #157E3C;
+$red: #A6331B;
 
 $break: 480px;
 
@@ -183,26 +185,29 @@ input {
   }
 }
 
+.answer {
+  label {
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+}
+
 .votes li {
   font-size: 15px;
-  font-weight: 700;
+  // font-weight: 700;
+  .positive, .negative {
+    margin-left: 20px;
+  }
   .positive {
-    color: green;
+    color: $green;
   }
   .negative {
-    color: maroon;
+    color: $red;
   }
 }
 
 fieldset {
-  padding: 15px;
-  border: 1px dashed #a3c5cf;
-  background: #d3e6eb;
-  margin-bottom: 30px;
-  font-size: 1.1em;
-  label {
-    font-weight: bold;
-  }
+  border: none;
 }
 
 button {
