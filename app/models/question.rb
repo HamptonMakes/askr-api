@@ -5,4 +5,8 @@ class Question < ActiveRecord::Base
   def votes_in(year)
     self.votes.count(:conditions => {:year => year})
   end
+
+  def year_added
+    self.created_at.year
+  end
 end

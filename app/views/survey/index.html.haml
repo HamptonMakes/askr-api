@@ -22,9 +22,13 @@
       Enter your email address if you want to stay updated.
 
     = text_field :person, :email_address, :placeholder => "E-mail"
+  %p 
+    %strong If a question seems dated, that is because it is. Please choose "other" if you've moved on from the technologies listed. We are tracking new (and old) trends.
   - @questions.each do |question|
     .question
-      %h2= question.content
+      %h2
+        = question.content
+        %small (added in #{question.year_added})
       %ul
         - question.answers.find(:all, :order => "id ASC").each do |answer|
           %li
