@@ -2,7 +2,7 @@
 
 - cache do
   .about
-    .blurb 
+    .blurb
       This is the results page. Feel free to look through it. Some of the questions are new and only show up in some of the years.
       Next to the second year though, there is the %-change between the years. That's the really juicy stuff to me.
       .link= link_to "Take the Survey!", "/"
@@ -18,13 +18,13 @@
               %label{:for => "question_#{question.id}_#{answer.id}"}
                 = answer.content
               %ul.votes
-                - if answer.percent_in(2008) > 0      
+                - if answer.percent_in(2008) > 0
                   %li
                     2008 -
                     = number_to_percentage answer.percent_in(2008)
                 - if answer.percent_in(2009) > 0
                   %li
-                    2009 - 
+                    2009 -
                     = number_to_percentage answer.percent_in(2009)
                     - if answer.percent_in(2008) > 0
                       - @change = answer.change_between(2009, 2008)
@@ -34,7 +34,7 @@
                         %span.negative= number_to_percentage @change
                 - if answer.percent_in(2010) > 0
                   %li
-                    2010 - 
+                    2010 -
                     = number_to_percentage answer.percent_in(2010)
                     - if answer.percent_in(2009) > 0
                       - @change = answer.change_between(2010, 2009)
@@ -44,7 +44,7 @@
                         %span.negative= number_to_percentage @change
                 - if answer.percent_in(2012) > 0
                   %li
-                    2012 - 
+                    2012 -
                     = number_to_percentage answer.percent_in(2012)
                     - if answer.percent_in(2010) > 0
                       - @change = answer.change_between(2012, 2010)
@@ -54,7 +54,7 @@
                         %span.negative= number_to_percentage @change
                 - if answer.percent_in(2014) > 0
                   %li
-                    2012 - 
+                    2014 - 
                     = number_to_percentage answer.percent_in(2014)
                     - if answer.percent_in(2012) > 0
                       - @change = answer.change_between(2014, 2012)
