@@ -9,7 +9,7 @@
 
   .results
     %h2 2008-#{YEAR} Results
-    - Question.find(:all, :include => :answers).each do |question|
+    - Question.all(:conditions => ["created_at < ?", Date.today.beginning_of_year], :include => :answers).each do |question|
       .question[question]
         %h2= question.content
         %ul
