@@ -2,7 +2,7 @@ class SurveyController < ApplicationController
   def index
 
     @person = Person.new(:email_address => params[:person][:email_address]) if params[:person]
-    @questions = Question.find(:all, :include => [:answers])
+    @questions = Question.find(:all, :include => [:answers]).group_by(&:year_added)
 
     if request.post? && params[:question]
       @person.ip_address = request.remote_ip
