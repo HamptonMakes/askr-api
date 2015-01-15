@@ -1,0 +1,25 @@
+= form_tag do
+  %h2 Take The Survey
+  .email
+    %p
+      Enter your email address if you want to stay updated.
+
+    = text_field :person, :email_address, :placeholder => "E-mail"
+  %p
+    %strong If a question seems dated, that is because it is. Please choose "other" if you've moved on from the technologies listed. We are tracking new (and old) trends.
+  - @questions.each do |year, questions|
+    %h2 #{year} Questions
+    %fieldset.questions
+      - questions.each do |question|
+        %div[question]
+          %h3
+            = question.content
+          %ul
+            - question.answers.find(:all, :order => "id ASC").each do |answer|
+              %li
+                %label{:for => "question_#{question.id}_#{answer.id}"}
+                  = radio_button_tag "question[#{question.id}]", answer.id
+                  = answer.content
+
+
+  %button{:type => "submit"} Finish Survey

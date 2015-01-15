@@ -8,7 +8,7 @@
       .link= link_to "Take the Survey!", "/"
 
   .results
-    %h2 2008-#{YEAR} Results
+    %h2 2008-#{results_for} Results
     - Question.all(:conditions => ["created_at < ?", Date.today.beginning_of_year], :include => :answers).each do |question|
       .question[question]
         %h2= question.content
@@ -54,7 +54,7 @@
                         %span.negative= number_to_percentage @change
                 - if answer.percent_in(2014) > 0
                   %li
-                    2014 - 
+                    2014 -
                     = number_to_percentage answer.percent_in(2014)
                     - if answer.percent_in(2012) > 0
                       - @change = answer.change_between(2014, 2012)

@@ -1,42 +1,31 @@
 
 .about
   .blurb
-    This Ruby Survey was started in 2008 by #{link_to "Hampton Catlin", "http://www.twitter.com/hcatlin"}. It's been held four times since 2008. The goal of this survey is to track changing trends, not to get the best data about today. To achieve that, we want to ask the same questions in the same way, every year. Therefore, you might notice some questions sound dated... but that's part of the fun!
+    %p
+      Hampton's Ruby Survey was started in 2008 by
+      #{link_to "Hampton Catlin", "http://www.twitter.com/hcatlin"}.
+      It's been held most years since 2008, except 2011 and 2013. The goal of this survey is to track changing trends
+      in those who are either currently invovled in the Ruby community or have ever been
+      part of it. The goal is NOT to get the best data about today, but to track changes. To
+      achieve that, we want to ask the same questions in the same way, every year.
+      Therefore, you might notice some questions sound dated... but that's part of the fun!
+    %p
+      Also, some of the questions might be very technical, and some are very personal.
+      We've done this on purpose, with the intent of knowing all aspects of this community
+      that we all love.
   .stats
     .numbers
       This survey has been taken by:
       .counts
-        .overall
-          %span= Person.count
-          people overall
-        .year
-          %span= Person.where("created_at > ?", Time.new(YEAR)).count
-          people this year
+
+        - @people.each do |year, count|
+          - if count > 100
+            .year
+              %span= count
+              people in #{year}
     .stats-link= link_to "Click here to see the stats!", "/stats"
 
-= form_tag do
-
-  %h2 Take The Survey
-  .email
-    %p
-      Enter your email address if you want to stay updated.
-
-    = text_field :person, :email_address, :placeholder => "E-mail"
-  %p
-    %strong If a question seems dated, that is because it is. Please choose "other" if you've moved on from the technologies listed. We are tracking new (and old) trends.
-  - @questions.each do |year, questions|
-    %h2 #{year} Questions
-    %fieldset.questions
-      - questions.each do |question|
-        %div[question]
-          %h3
-            = question.content
-          %ul
-            - question.answers.find(:all, :order => "id ASC").each do |answer|
-              %li
-                %label{:for => "question_#{question.id}_#{answer.id}"}
-                  = radio_button_tag "question[#{question.id}]", answer.id
-                  = answer.content
-
-
-  %button{:type => "submit"} Finish Survey
+- if survey_open?
+  = render :partial => "survey"
+- else
+  <h3 class="warning">Survey Closed for This Year</h3>

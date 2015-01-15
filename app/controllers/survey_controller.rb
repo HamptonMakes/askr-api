@@ -1,10 +1,9 @@
 class SurveyController < ApplicationController
   def index
-
     @person = Person.new(:email_address => params[:person][:email_address]) if params[:person]
     @questions = Question.find(:all, :include => [:answers]).group_by(&:year_added)
 
-    if request.post? && params[:question]
+    if survey_open? && request.post? && params[:question]
       @person.ip_address = request.remote_ip
       @person.user_agent = request.headers["HTTP_USER_AGENT"]
       @person.save
@@ -14,6 +13,8 @@ class SurveyController < ApplicationController
       end
 
       redirect_to :action => "finished"
+    else
+      @people = Person.group("YEAR(created_at)").count
     end
   end
 
