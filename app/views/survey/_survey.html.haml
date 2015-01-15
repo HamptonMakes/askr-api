@@ -1,5 +1,8 @@
 = form_tag do
   %h2 Take The Survey
+
+  %h3 Survey open for #{time_ago_in_words(end_time)} longer!
+
   .email
     %p
       Enter your email address if you want to stay updated.
