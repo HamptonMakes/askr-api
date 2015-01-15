@@ -1,31 +1,35 @@
+.wrapper
+  .about
+    .blurb
+      %p
+        Hampton's Ruby Survey was started in 2008 by
+        #{link_to "Hampton Catlin", "http://www.twitter.com/hcatlin"}.
+        It's been held most years since 2008, except 2011 and 2013. The goal of this survey is to track changing trends
+        in those who are either currently invovled in the Ruby community or have ever been
+        part of it. The goal is NOT to get the best data about today, but to track changes. To
+        achieve that, we want to ask the same questions in the same way every year.
+        Therefore you might notice some questions sound dated... but that's part of the fun!
+      %p
+        Also, some of the questions might be very technical, and some are very personal.
+        We've done this on purpose, with the intent of knowing all aspects of this community
+        that we all love.
+    .stats
+      .numbers
+        This survey has been taken by:
+        .counts
 
-.about
-  .blurb
-    %p
-      Hampton's Ruby Survey was started in 2008 by
-      #{link_to "Hampton Catlin", "http://www.twitter.com/hcatlin"}.
-      It's been held most years since 2008, except 2011 and 2013. The goal of this survey is to track changing trends
-      in those who are either currently invovled in the Ruby community or have ever been
-      part of it. The goal is NOT to get the best data about today, but to track changes. To
-      achieve that, we want to ask the same questions in the same way, every year.
-      Therefore, you might notice some questions sound dated... but that's part of the fun!
-    %p
-      Also, some of the questions might be very technical, and some are very personal.
-      We've done this on purpose, with the intent of knowing all aspects of this community
-      that we all love.
-  .stats
-    .numbers
-      This survey has been taken by:
-      .counts
+          - @people.each do |year, count|
+            - if count > 100
+              .year
+                %span= count
+                people in #{year}
+      .stats-link= link_to "Click here to see the stats!", "/stats"
 
-        - @people.each do |year, count|
-          - if count > 100
-            .year
-              %span= count
-              people in #{year}
-    .stats-link= link_to "Click here to see the stats!", "/stats"
+  - if survey_open?
+    = render :partial => "survey"
+  - else
+    <h3 class="warning">Survey Closed for This Year</h3>
 
-- if survey_open?
-  = render :partial => "survey"
-- else
-  <h3 class="warning">Survey Closed for This Year</h3>
+%footer
+  brought to you by
+  =link_to "rarebit", "http://teamrarebit.com"

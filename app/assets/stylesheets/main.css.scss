@@ -5,13 +5,20 @@ $blue: #3D8DAD;
 $green: #157E3C;
 $red: #A6331B;
 
-$break: 480px;
+$small-break: 480px;
+$large-break: 1050px;
 
 @mixin box {
   border-radius: 2px;
   background: $light-grey;
   color: $grey;
 }
+
+@mixin transition($time: 0.5s, $type: all) {
+  -webkit-transition: $type $time;
+  transition: $type $time;
+}
+
 
 * {
   margin: 0;
@@ -22,11 +29,7 @@ $break: 480px;
 body {
   background: white;
   color: $dark-grey;
-  margin: 30px 80px;
   font-family: "Open Sans", sans-serif;
-  @media screen and (max-width: $break) {
-    margin: 5px 20px;
-  }
 }
 
 ol, ul, li {
@@ -73,7 +76,7 @@ h1 {
   letter-spacing: 0.1em;
   overflow: hidden;
   padding-top: 10px;
-  @media screen and (max-width: $break) {
+  @media screen and (max-width: $small-break) {
     font-size: 1.4em;
     overflow: inherit;
   }
@@ -85,8 +88,15 @@ h2 {
   font-weight: 700;
   letter-spacing: 0.08em;
   color: $grey;
-  @media screen and (max-width: $break) {
+  @media screen and (max-width: $small-break) {
     font-size: 1.1em;
+  }
+}
+
+header, .wrapper {
+  margin: 30px 80px;
+  @media screen and (max-width: $small-break) {
+    margin: 5px 20px 20px;
   }
 }
 
@@ -100,7 +110,7 @@ h2 {
     width: 70%;
     padding-right: 25px;
     margin-bottom: 20px;
-    @media screen and (max-width: $break) {
+    @media screen and (max-width: $large-break) {
       width: 100%;
       float: inherit;
     }
@@ -114,7 +124,7 @@ h2 {
     width: 26%;
     padding: 5px;
     @include box;
-    @media screen and (max-width: $break) {
+    @media screen and (max-width: $large-break) {
       float: inherit;
       margin: auto;
       width: 85%;
@@ -151,14 +161,15 @@ input {
 
 .question {
   margin-top: 15px;
-  h2 {
-    font-weight: 400;
+  h3 {
+    font-weight: 300;
+    margin-bottom: 5px;
   }
   ul {
     margin-left: 40px;
     font-size: 1.2em;
     margin-bottom: 30px;
-    @media screen and (max-width: $break) {
+    @media screen and (max-width: $small-break) {
       margin-left: 30px;
       font-size: 1em;
     }
@@ -166,7 +177,7 @@ input {
       margin-bottom: 10px;
       margin-right: 45px;
       display: inline-block;
-      @media screen and (max-width: $break) {
+      @media screen and (max-width: $small-break) {
         display: block;
       }
       input {
@@ -211,6 +222,7 @@ fieldset {
 }
 
 button {
+  @include transition();
   font-size: 1.3em;
   background: $dark-grey;
   color: white;
@@ -220,9 +232,16 @@ button {
   &:hover {
     opacity: 0.6;
   }
-  @media screen and (max-width: $break) {
+  @media screen and (max-width: $small-break) {
     width: 100%;
   }
+}
+
+
+footer {
+  background: $light-grey;
+  padding: 40px;
+  text-align: center;
 }
 
 ///////////////////////////////////
