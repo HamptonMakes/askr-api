@@ -8,7 +8,7 @@
       .link= link_to "Take the Survey!", "/"
 
   .results
-    %h2 2008-#{results_for} Results
+    %h2 2008-#{results_year} Results
     - Question.all(:conditions => ["created_at < ?", Date.today.beginning_of_year], :include => :answers).each do |question|
       .question[question]
         %h2= question.content
