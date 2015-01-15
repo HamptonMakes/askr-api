@@ -10,8 +10,21 @@ $large-break: 1050px;
 
 @mixin box {
   border-radius: 2px;
-  background: $light-grey;
-  color: $grey;
+  background: #d55258;
+  color: #FFF;
+  padding: 5px;
+  position: relative;
+  .shadow {
+    height: 10px;
+    width: 96%;
+    background: lighten(#d55258, 20%);
+    position: absolute;
+    top: -10px;
+  }
+  a {
+    color: #FFF;
+    text-decoration: underline;
+  }
 }
 
 @mixin transition($time: 0.5s, $type: all) {
@@ -122,7 +135,6 @@ header, .wrapper {
   .stats {
     float: right;
     width: 26%;
-    padding: 5px;
     @include box;
     @media screen and (max-width: $large-break) {
       float: inherit;
