@@ -1,9 +1,25 @@
 GIT
+  remote: git://github.com/BrandyMint/grape-swagger-rails.git
+  revision: 51cba7386edf66721383eb2d4a2c764da97bea7e
+  specs:
+    grape-swagger-rails (0.0.10)
+      grape-swagger
+      railties (>= 3.2.12)
+
+GIT
   remote: git://github.com/jetthoughts/yaml_db.git
   revision: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
   ref: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
   specs:
     yaml_db (0.2.3)
+
+GIT
+  remote: git://github.com/tim-vandecasteele/grape-swagger.git
+  revision: 828b285e2abae1e5c1253962396072f90aacaf48
+  specs:
+    grape-swagger (0.10.2)
+      grape (>= 0.8.0)
+      grape-entity
 
 GEM
   remote: https://www.rubygems.org/
@@ -27,6 +43,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
+    active_model_serializers (0.9.3)
+      activemodel (>= 3.2)
     activejob (4.2.0)
       activesupport (= 4.2.0)
       globalid (>= 0.3.0)
@@ -49,15 +67,24 @@ GEM
       rest-client (~> 1.7, >= 1.7.3)
       rspec (~> 3.1, >= 3.1.0)
     arel (6.0.0)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     database_cleaner (1.4.0)
     debug_inspector (0.0.2)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
+    equalizer (0.0.11)
     erubis (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -70,6 +97,26 @@ GEM
     formatador (0.2.5)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
+    grape (0.9.0)
+      activesupport
+      builder
+      hashie (>= 2.1.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus (>= 1.0.0)
+    grape-active_model_serializers (1.3.2)
+      active_model_serializers (>= 0.9.0)
+      grape
+    grape-entity (0.4.5)
+      activesupport
+      multi_json (>= 1.3.2)
+    grape-raketasks (0.0.3)
+      activesupport
+      grape
+      rake
     guard (2.12.5)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -84,9 +131,11 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hashie (3.4.0)
     hike (1.2.3)
     hitimes (1.2.2)
     i18n (0.7.0)
+    ice_nine (0.11.1)
     json (1.8.2)
     kgio (2.9.3)
     listen (2.9.0)
@@ -103,6 +152,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
+    multi_xml (0.5.5)
     mysql2 (0.3.18)
     nenv (0.2.0)
     netrc (0.10.2)
@@ -126,6 +176,11 @@ GEM
       coderay (~> 1.1)
       json (~> 1.8)
     rack (1.6.0)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-cors (0.3.1)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -209,21 +264,33 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   airborne
   database_cleaner
   factory_girl_rails
   faker
+  grape (= 0.9.0)
+  grape-active_model_serializers
+  grape-raketasks
+  grape-swagger!
+  grape-swagger-rails!
   guard-rspec
   mysql2
   pry-nav
   pry-rails
   pry-stack_explorer
   pry-theme
+  rack-cors
   rails (= 4.2.0)
   rails-api
   rspec-rails
