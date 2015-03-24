@@ -1,7 +1,9 @@
 class Question < ActiveRecord::Base
-  has_many :answers, :order => "id ASC"
+  has_many :answers
   has_many :votes
-  
+  belongs_to :year
+  belongs_to :survey
+
   def votes_in(year)
     self.votes.count(:conditions => {:year => year})
   end

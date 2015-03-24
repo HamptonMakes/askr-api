@@ -11,42 +11,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115210855) do
+ActiveRecord::Schema.define(version: 20150324193045) do
 
-  create_table "answers", force: true do |t|
-    t.string   "content"
-    t.integer  "question_id"
+  create_table "answers", force: :cascade do |t|
+    t.string   "content",     limit: 255
+    t.integer  "question_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
-  create_table "people", force: true do |t|
-    t.string   "email_address"
-    t.string   "ip_address"
-    t.string   "user_agent"
+  create_table "people", force: :cascade do |t|
+    t.string   "email_address", limit: 255
+    t.string   "ip_address",    limit: 255
+    t.string   "user_agent",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "people", ["created_at"], name: "index_people_on_created_at", using: :btree
 
-  create_table "questions", force: true do |t|
-    t.string   "content"
+  create_table "questions", force: :cascade do |t|
+    t.string   "content",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "survey_id",      limit: 4
+    t.integer  "survey_year_id", limit: 4
   end
 
   add_index "questions", ["created_at"], name: "index_questions_on_created_at", using: :btree
 
-  create_table "votes", force: true do |t|
-    t.integer  "question_id"
-    t.integer  "answer_id"
-    t.integer  "person_id"
+  create_table "survey_years", force: :cascade do |t|
+    t.integer  "year",       limit: 4
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.integer  "survey_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "slug",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "question_id",    limit: 4
+    t.integer  "answer_id",      limit: 4
+    t.integer  "person_id",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "year"
+    t.integer  "year",           limit: 4
+    t.integer  "survey_year_id", limit: 4
   end
 
   add_index "votes", ["answer_id"], name: "index_votes_on_answer_id", using: :btree
