@@ -3,8 +3,7 @@ RubySurvey::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'survey#offline'
-  get '/:all' => 'survey#offline'
+  root 'survey#index'
 
   # I know! This isn't how I should do it now!
   post '/' => 'survey#index'
