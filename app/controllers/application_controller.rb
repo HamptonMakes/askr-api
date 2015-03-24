@@ -1,7 +1,5 @@
-class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+class ApplicationController < ActionController::API
+  include ActionController::Serialization
 
   def end_time
     @end_time ||= Date.parse("Feb 15, 2015").to_time
