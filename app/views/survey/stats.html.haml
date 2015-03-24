@@ -62,3 +62,13 @@
                           %span.positive= number_to_percentage @change
                         - else
                           %span.negative= number_to_percentage @change
+                  - if answer.percent_in(2015) > 0
+                    %li
+                      2015 -
+                      = number_to_percentage answer.percent_in(2015)
+                      - if answer.percent_in(2014) > 0
+                        - @change = answer.change_between(2015, 2014)
+                        - if @change > 0
+                          %span.positive= number_to_percentage @change
+                        - else
+                          %span.negative= number_to_percentage @change

@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
     <h1><%= link_to 'The Sixth Ruby Survey: 2015', '/' %></h1>
-    <h5>Open from January 15-February 15th</h5>
+    <h5>Collected from January 15-February 15th</h5>
   </header>
+
   <%= yield %>
 
 <script>
