@@ -1,16 +1,18 @@
 class Answer < ActiveRecord::Base
   belongs_to :question
-  has_many :votes
+  has_many :votes, dependent: :destroy
+  has_many :year_summary_answers
 
-  def votes_in(year)
-    votes.where(:year => year).count
-  end
-
-  def percent_in(year)
-    (votes_in(year) / question.votes_in(year).to_f) * 100
-  end
-
-  def change_between(year, past_year)
-    ((self.percent_in(year) - self.percent_in(past_year).to_f) / 100) * 100
+  def build_year_summary(year, total_votes = nil)
+    total_votes ||= question.votes.where(year: year).count
+    this_answers_count = self.votes.where(year: year).count
+    percentage = (this_answers_count / total_votes.to_f) * 100
+    YearSummaryAnswer.new(
+      question: self.question,
+      answer: self,
+      year: year,
+      pecentage_this_year: percentage,
+      total_votes: this_answers_count
+    )
   end
 end
