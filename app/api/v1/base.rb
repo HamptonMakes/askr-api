@@ -1,6 +1,7 @@
 module V1
   class Base < Grape::API
     include V1::Defaults
+    include ActionController::Serialization
 
     mount V1::Surveys
 
