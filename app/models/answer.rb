@@ -11,7 +11,7 @@ class Answer < ActiveRecord::Base
       question: self.question,
       answer: self,
       year: year,
-      pecentage_this_year: percentage,
+      percentage_this_year: percentage,
       total_votes: this_answers_count
     )
   end

@@ -14,4 +14,11 @@ class Question < ActiveRecord::Base
       answer.build_year_summary(year).save!
     end
   end
+
+  def to_csv
+    year_summary_answers.group(:year_id).each do |key, array|
+      puts key
+      puts array
+    end
+  end
 end
