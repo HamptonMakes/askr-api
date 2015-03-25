@@ -5,7 +5,7 @@ class CreateYearSummaryAnswers < ActiveRecord::Migration
       t.belongs_to :year
       t.belongs_to :question
       t.belongs_to :answer
-      t.float :pecentage_this_year
+      t.float :percentage_this_year
       t.float :change_from_last_year
       t.integer :total_votes
       t.timestamps null: false

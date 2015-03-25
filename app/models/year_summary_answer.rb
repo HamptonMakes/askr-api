@@ -8,7 +8,7 @@ class YearSummaryAnswer < ActiveRecord::Base
   def calculate_change_from_last_year
     if previous_year = year.previous_year
       if (last_year_summary = self.answer.year_summary_answers.where(year: previous_year).first)
-        self.change_from_last_year = self.pecentage_this_year - last_year_summary.pecentage_this_year
+        self.change_from_last_year = self.percentage_this_year - last_year_summary.percentage_this_year
       end
     end
   end

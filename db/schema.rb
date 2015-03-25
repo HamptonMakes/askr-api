@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324212749) do
+ActiveRecord::Schema.define(version: 20150324193552) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content",     limit: 255
@@ -63,18 +63,6 @@ ActiveRecord::Schema.define(version: 20150324212749) do
   add_index "votes", ["created_at"], name: "index_votes_on_created_at", using: :btree
   add_index "votes", ["person_id"], name: "index_votes_on_person_id", using: :btree
   add_index "votes", ["question_id"], name: "index_votes_on_question_id", using: :btree
-
-  create_table "year_summary_answers", force: :cascade do |t|
-    t.text     "data",                  limit: 65535
-    t.integer  "year_id",               limit: 4
-    t.integer  "question_id",           limit: 4
-    t.integer  "answer_id",             limit: 4
-    t.float    "pecentage_this_year",   limit: 24
-    t.float    "change_from_last_year", limit: 24
-    t.integer  "total_votes",           limit: 4
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
 
   create_table "years", force: :cascade do |t|
     t.integer  "year",       limit: 4
