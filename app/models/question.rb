@@ -21,4 +21,8 @@ class Question < ActiveRecord::Base
       puts array
     end
   end
+
+  def years_asked
+    survey.years.where("year >= ?", year.year)
+  end
 end
