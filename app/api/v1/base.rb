@@ -2,6 +2,7 @@ module V1
   class Base < Grape::API
     include V1::Defaults
     include ActionController::Serialization
+    include Grape::Rails::Cache
 
     mount V1::Surveys
 

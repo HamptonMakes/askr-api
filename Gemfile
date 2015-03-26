@@ -17,10 +17,15 @@ gem "grape-active_model_serializers"
 gem 'grape-swagger', github: 'tim-vandecasteele/grape-swagger'
 gem 'grape-swagger-rails', github: 'BrandyMint/grape-swagger-rails'
 gem 'grape-raketasks'
+gem 'grape-rails-cache'
 
 gem 'puma'
 
 gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
+
+group :production do
+  gem 'dalli'
+end
 
 group :development, :test do
   gem "pry-nav"

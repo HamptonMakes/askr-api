@@ -5,7 +5,10 @@ module V1
     resources :surveys, :serializer => SurveySerializer do
       desc "grab a survey"
       get '/:name' do
-        Survey.where(:slug => params[:name]).first
+        survey = Survey.where(:slug => params[:name]).first
+        cache("survey:#{survey.id}", etag: survey.updated_at, expires_in: 2.days) do
+          survey
+        end
       end
     end
   end
