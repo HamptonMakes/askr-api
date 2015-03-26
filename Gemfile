@@ -18,8 +18,7 @@ gem 'grape-swagger', github: 'tim-vandecasteele/grape-swagger'
 gem 'grape-swagger-rails', github: 'BrandyMint/grape-swagger-rails'
 gem 'grape-raketasks'
 
-# Use unicorn as the app server
-gem 'unicorn'
+gem 'puma'
 
 gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 
