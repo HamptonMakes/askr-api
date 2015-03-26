@@ -29,4 +29,8 @@ class Question < ActiveRecord::Base
       end
     end
   end
+
+  def years_asked
+    survey.years.where("year >= ?", year.year)
+  end
 end

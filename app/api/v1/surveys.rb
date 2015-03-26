@@ -5,7 +5,7 @@ module V1
     resources :surveys, :serializer => SurveySerializer do
       desc "grab a survey"
       get '/:name' do
-        Survey.find(:slug => params[:name])
+        Survey.where(:slug => params[:name]).first
       end
     end
   end
