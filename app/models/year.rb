@@ -1,6 +1,7 @@
 class Year < ActiveRecord::Base
   belongs_to :survey
   has_many :questions
+  has_many :votes
   has_many :year_summary_answers
 
   def previous_year
@@ -12,5 +13,9 @@ class Year < ActiveRecord::Base
     survey.questions.each do |question|
       question.generate_summaries_for(self)
     end
+  end
+
+  def calculate_significance
+    self.significance = (survey.questions.first.votes.where(year: self).count / 100)
   end
 end

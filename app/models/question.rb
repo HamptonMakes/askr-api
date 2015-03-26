@@ -10,15 +10,23 @@ class Question < ActiveRecord::Base
     if total_votes == 0
       return []
     end
-    answers.map do |answer|
+    answers.each do |answer|
       answer.build_year_summary(year).save!
     end
   end
 
-  def to_csv
-    year_summary_answers.group(:year_id).each do |key, array|
-      puts key
-      puts array
+  def to_csv(significance_at_least)
+    require 'csv'
+    "#---- #{content.strip} ------\n" + CSV.generate do |csv|
+      as = answers.order("created_at ASC")
+      csv << ([""] + (as.map &:content))
+      year_summary_answers.includes(:year).group_by(&:year).each do |year, data|
+        if year.significance >= significance_at_least
+          csv << ([year.year] + (data.map do |summary|
+            summary.percentage_this_year
+          end))
+        end
+      end
     end
   end
 end

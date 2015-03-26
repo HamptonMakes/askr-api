@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325004505) do
+ActiveRecord::Schema.define(version: 20150325183252) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content",     limit: 255
@@ -77,12 +77,13 @@ ActiveRecord::Schema.define(version: 20150325004505) do
   end
 
   create_table "years", force: :cascade do |t|
-    t.integer  "year",       limit: 4
+    t.integer  "year",         limit: 4
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.integer  "survey_id",  limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "survey_id",    limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "significance", limit: 4, default: 0
   end
 
 end

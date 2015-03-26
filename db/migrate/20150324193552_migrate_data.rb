@@ -14,10 +14,16 @@ class MigrateData < ActiveRecord::Migration
       puts "q: #{q.id}"
     end
 
-    Vote.all.each do |vote|
-      vote.year = years[vote.created_at.year]
-      vote.save!
-      puts "vote: #{vote.id}"
+    {2008 => 2008,
+     2009 => 2009,
+     2010 => 2010,
+     2011 => 2010,
+     2012 => 2012,
+     2013 => 2012,
+     2014 => 2014,
+     2015 => 2015}.each do |from, to|
+      to_year = Year.where(year: to).first
+      Vote.where("year = ?", from).update_all("year_id = #{to_year.id}")
     end
   end
 end
