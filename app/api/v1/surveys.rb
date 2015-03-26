@@ -4,12 +4,12 @@ module V1
 
     include Grape::Rails::Cache
 
-    resources :surveys, serializer: SurveySerializer do
+    resources :surveys do
       desc "grab a survey"
       get '/:name' do
         survey = Survey.where(:slug => params[:name]).first
-        cache(key: "survey::#{survey.id}", etag: survey.updated_at, expires_in: 2.days) do
-          survey
+        cache(key: "s::#{survey.slug}", expires_in: 2.days) do
+          SurveySerializer.new(survey)
         end
       end
     end
