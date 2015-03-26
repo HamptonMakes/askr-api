@@ -6,7 +6,7 @@ module V1
       desc "grab a survey"
       get '/:name' do
         survey = Survey.where(:slug => params[:name]).first
-        cache("survey:#{survey.id}", etag: survey.updated_at, expires_in: 2.days) do
+        cache(key: "survey:#{survey.id}", etag: survey.updated_at, expires_in: 2.days) do
           survey
         end
       end
